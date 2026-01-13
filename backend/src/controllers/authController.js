@@ -31,7 +31,7 @@ exports.register = async (req, res, next) => {
       ),
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict'
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
     };
 
     res.cookie('token', token, cookieOptions);
@@ -86,7 +86,7 @@ exports.login = async (req, res, next) => {
       ),
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict'
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
     };
 
     res.cookie('token', token, cookieOptions);
