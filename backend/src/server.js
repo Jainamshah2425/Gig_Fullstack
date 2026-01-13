@@ -23,7 +23,19 @@ const app = express();
 
 // CORS configuration (must be early so it applies to all routes, including preflight)
 const corsOptions = {
-  origin: process.env.CLIENT_URL,
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'http://localhost:5173',
+      'http://localhost:5174',
+      process.env.CLIENT_URL
+    ].filter(Boolean);
+    
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
