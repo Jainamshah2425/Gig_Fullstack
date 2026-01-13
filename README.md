@@ -32,12 +32,6 @@ A full-stack freelance marketplace where clients post gigs and freelancers bid o
 - Helmet for security headers
 - Express Rate Limit for API protection
 
-## 📋 Prerequisites
-
-Before you begin, ensure you have the following installed:
-- Node.js (v18 or higher)
-- MongoDB (local installation or MongoDB Atlas account)
-- npm or yarn package manager
 
 ## 🚀 Quick Start
 
@@ -60,22 +54,12 @@ cp .env.example .env
 
 4. Edit `.env` and configure your environment variables:
 ```env
-NODE_ENV=development
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/gigflow
-JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
-JWT_EXPIRE=7d
-COOKIE_EXPIRE=7
-CLIENT_URL=http://localhost:5173
 ```
 
 5. Start the backend server:
 ```bash
 npm run dev
 ```
-
-The backend will run on `http://localhost:5000`
-
 ### Frontend Setup
 
 1. Navigate to the frontend directory:
@@ -95,16 +79,12 @@ cp .env.example .env
 
 4. Edit `.env` with your backend URL:
 ```env
-VITE_API_URL=http://localhost:5000
-VITE_SOCKET_URL=http://localhost:5000
 ```
 
 5. Start the development server:
 ```bash
 npm run dev
 ```
-
-The frontend will run on `http://localhost:5173`
 
 ## 📚 API Documentation
 
@@ -237,116 +217,5 @@ Socket.io integration provides instant feedback:
 2. Notifications appear as toast messages in the UI
 3. Socket rooms are used to target specific users
 
-## 📁 Project Structure
-
-```
-fullstack_Task/
-├── backend/
-│   ├── src/
-│   │   ├── config/         # Database and environment configuration
-│   │   ├── controllers/    # Request handlers
-│   │   ├── middleware/     # Auth, validation, error handling
-│   │   ├── models/         # Mongoose schemas
-│   │   ├── routes/         # API routes
-│   │   ├── utils/          # Logger and error classes
-│   │   └── server.js       # Entry point
-│   ├── .env.example
-│   ├── .gitignore
-│   └── package.json
-├── frontend/
-│   ├── src/
-│   │   ├── api/            # Axios client configuration
-│   │   ├── components/     # React components
-│   │   ├── context/        # Context providers
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── pages/          # Page components
-│   │   ├── App.jsx         # Main app component
-│   │   └── main.jsx        # Entry point
-│   ├── .env.example
-│   ├── .gitignore
-│   ├── index.html
-│   ├── package.json
-│   ├── tailwind.config.js
-│   └── vite.config.js
-└── README.md
-```
-
-## 🧪 Testing the Application
-
-### Manual Testing Flow
-
-1. **Registration Flow**
-   - Register a new user
-   - Verify JWT cookie is set
-   - Check user is redirected to home page
-
-2. **Gig Creation**
-   - Create a new gig with title, description, budget
-   - Verify it appears in "My Gigs"
-   - Check it's visible in the browse page
-
-3. **Bidding Flow**
-   - Register a second user
-   - Browse gigs and submit a bid
-   - Verify bid appears in gig owner's view
-
-4. **Hiring Flow** (Critical)
-   - Login as gig owner
-   - View bids on your gig
-   - Hire a freelancer
-   - Verify:
-     - Gig status changes to 'assigned'
-     - Hired bid status is 'hired'
-     - Other bids are 'rejected'
-     - Real-time notification appears
-
-5. **Search Functionality**
-   - Use search bar to find gigs by keyword
-   - Verify full-text search works
-
-## 🚀 Deployment
-
-### Backend Deployment (Render/Railway/Heroku)
-
-1. Set environment variables in your hosting platform
-2. Change `NODE_ENV` to `production`
-3. Use MongoDB Atlas for the database
-4. Update `CLIENT_URL` to your frontend domain
-5. Ensure `secure: true` for cookies in production
-
-### Frontend Deployment (Vercel/Netlify)
-
-1. Set `VITE_API_URL` to your backend URL
-2. Build the project: `npm run build`
-3. Deploy the `dist` folder
-4. Configure redirects for client-side routing
-
-## 🐛 Common Issues
-
-**MongoDB Connection Failed**
-- Ensure MongoDB is running locally or check Atlas connection string
-- Verify IP whitelist in MongoDB Atlas
-
-**CORS Errors**
-- Check `CLIENT_URL` in backend `.env` matches frontend URL
-- Ensure `withCredentials: true` in axios requests
-
-**Cookie Not Set**
-- Check browser settings allow cookies
-- Verify `sameSite` and `secure` settings match your environment
-
-## 📝 License
-
-MIT License - feel free to use this project for learning or commercial purposes.
-
-## 👨‍💻 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📧 Support
-
-For questions or issues, please open an issue on the GitHub repository.
-
----
 
 Built with ❤️ using React, Node.js, and MongoDB
