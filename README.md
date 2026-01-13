@@ -48,13 +48,9 @@ npm install
 ```
 
 3. Create environment file:
-```bash
-cp .env.example .env
-```
 
 4. Edit `.env` and configure your environment variables:
-```env
-```
+
 
 5. Start the backend server:
 ```bash
@@ -73,13 +69,8 @@ npm install
 ```
 
 3. Create environment file:
-```bash
-cp .env.example .env
-```
 
 4. Edit `.env` with your backend URL:
-```env
-```
 
 5. Start the development server:
 ```bash
