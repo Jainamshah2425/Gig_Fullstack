@@ -208,5 +208,3 @@ Socket.io integration provides instant feedback:
 2. Notifications appear as toast messages in the UI
 3. Socket rooms are used to target specific users
 
-
-Built with ❤️ using React, Node.js, and MongoDB
